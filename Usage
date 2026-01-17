@@ -1,0 +1,15 @@
+import cv2
+from awlf_fast import FastDenoiser
+from awlf_fast.io_utils import load_raw_16bit
+
+# 1. Load 16-bit RAW thermal image (retain full temperature data)
+raw_img = load_raw_16bit("industrial_sample.tiff")
+
+# 2. Initialize Engine (JIT compilation happens on first run)
+engine = FastDenoiser(window_size=5, sensitivity=10.0)
+
+# 3. Process (Real-time)
+clean_raw = engine.process(raw_img)
+
+# 4. Save result
+cv2.imwrite("clean_output.tiff", clean_raw)
