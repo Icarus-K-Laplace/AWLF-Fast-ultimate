@@ -26,7 +26,27 @@ Unlike the [Reference Implementation](你的MIT仓库链接), this engine is opt
 | **1280x1024 (HD)**| **AWLF-Fast** | **25 fps** | **40 ms** |
 
 > *Tested on Intel Core i7-10750H, Single Thread vs Multi-Thread.*
+## 📊 Performance Benchmark
 
+Tested on `scene1.png` (512×640 infrared image):
+
+| Noise Density | Mode        | Time (s) | PSNR Gain | SSIM  |
+|:-------------:|:-----------:|:--------:|:---------:|:-----:|
+| **20%**       | Auto Detect | **0.4s** | +21.54 dB | 0.980 |
+| **20%**       | Full Mask   | **0.4s** | +27.38 dB | 0.985 |
+| **40%**       | Auto Detect | **0.8s** | +21.32 dB | 0.947 |
+| **40%**       | Full Mask   | **0.8s** | +25.34 dB | 0.960 |
+| **60%**       | Auto Detect | **1.4s** | +20.26 dB | 0.877 |
+| **60%**       | Full Mask   | **1.1s** | +23.38 dB | 0.911 |
+
+---
+## Dataset
+
+Experiments are conducted on the **Tianjin University open UAV remote-sensing infrared grayscale image dataset**.
+
+- Dataset ID (CSTR): `CSTR:14804.11.sciencedb.space.00579`
+- Link: https://cstr.cn/14804.11.sciencedb.space.00579
+- Note: This repository does **not** redistribute the dataset files. Please download it from the official source and comply with its license/terms.
 ## 🛠️ Installation
 
 ```bash
