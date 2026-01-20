@@ -9,6 +9,14 @@ High-performance, JIT-compiled denoising engine for uncooled thermal imaging. Fe
 **AWLF-Fast** is a high-performance, JIT-compiled implementation of the Adaptive Weighted Local Fitting algorithm, designed specifically for **Uncooled Thermal Imaging (Long-wave IR)**.
 
 Unlike the [Reference Implementation](你的MIT仓库链接), this engine is optimized for **Production Environments**.
+## 🧩 Algorithm Pipeline
+
+![AWLF-Fast Pipeline](Untitled diagram-2026-01-20-105901.png)
+
+**Key Innovations:**
+*   **Numba JIT Compilation**: Critical loops are compiled to native machine code, achieving 60+ FPS on 1024x1024 images.
+*   **Adaptive Weighting**: Blending between polynomial fitting (texture) and median (noise) based on local gradient.
+*   **16-bit Native Support**: Direct processing of industrial thermal sensor outputs without precision loss.
 
 ## 🚀 Key Features
 
