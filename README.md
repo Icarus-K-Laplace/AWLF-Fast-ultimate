@@ -16,6 +16,31 @@ Unlike the [Reference Implementation](你的MIT仓库链接), this engine is opt
 *   **🏭 Industrial Ready**: Native support for **16-bit RAW / TIFF** data (no dynamic range loss).
 *   **🧵 Parallelized**: Fully utilizes multi-core CPUs via SIMD vectorization and OpenMP.
 *   **🛡️ Robust**: Handles dead pixels (blind pixels) and stripe noise common in IR sensors.
+## 👁️ Visual Results & Performance
+
+We evaluate AWLF-Fast on standard infrared benchmarks under varying impulse noise densities (20%, 40%, 60%).
+
+### 1. Global Comparison (Robustness Test)
+> **Observation**: The algorithm demonstrates exceptional robustness across all noise levels. Even at **60% noise density**, where traditional median filters fail (causing "salt-and-pepper" artifacts), AWLF-Fast successfully reconstructs the global structure.
+
+![Global Comparison](multi_noise_summary.png)
+
+---
+
+### 2. Zoom-in Details (Texture Preservation)
+> **Key Feature**: Unlike standard filters that blur edges, AWLF-Fast preserves sharp transitions (e.g., hat brim, facial features) using adaptive local fitting.
+
+#### Case A: Low Density (20%)
+*Ideal for routine sensor calibration.*
+![Zoom 20%](roi_detail_20pct.png)
+
+#### Case B: Medium Density (40%)
+*Simulating degraded sensor conditions.*
+![Zoom 40%](roi_detail_40pct.png)
+
+#### Case C: Extreme Density (60%)
+*Stress test for industrial failure scenarios. Note the clean reconstruction of the eye region.*
+![Zoom 60%](roi_detail_60pct.png)
 
 ## 📊 Performance Benchmark
 
